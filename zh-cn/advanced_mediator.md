@@ -11,14 +11,14 @@
 > mediator 中介者，本质是个 JS bundle，在程序最开始实例化常驻在内存中，不被销毁。
 
 ## 使用
-> 我们在开发模板中默认帮你配置了 `公共 js bundle` 为 `src/js/mediator/index.js`，**一般来说你无需进行以下手动配置，直接使用即可**。
+> 我们在开发模板中默认帮你配置了 `公共 js bundle` 为 `src/js/mediator/index.vue`，**一般来说你无需进行以下手动配置，直接使用即可**。
 
 1.在 `eros.dev.js` 中配置出你想要成为公共 js bundle 的路径：
 
 ```js
 'exports': [
 		// mediator
-        'js/mediator/index.js',
+        'js/mediator/index.vue',
         ...
 ]
 ```
@@ -28,12 +28,16 @@
 ```js
 {
 	...
-	'mediator': '/mediator/index.js',
+	'page': {
+		...
+		'mediatorPage': '/mediator/index.js'
+		...
+	},
 	...
 }
 ```
 
-3.用上面的例子来说，我们把监听个推的事件代码放入 `src/js/mediator/index.js` 中即可。
+3.用上面的例子来说，我们把监听个推的事件代码放入 `src/js/mediator/index.vue` 中即可。
 
 注意：
 - 每次修改之后需要重启 app 才可以看到变动。
